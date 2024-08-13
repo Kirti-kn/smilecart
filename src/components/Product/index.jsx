@@ -2,21 +2,24 @@ import { useEffect, useState } from "react";
 import { Typography } from "antd";
 import Carousel from "./Carousel";
 import productsApi from "apis/products";
+import { useParams } from "react-router-dom";
 import { append, isNotNil } from "ramda";
-import { Spinner } from "neetoui";
+import { Header, PageLoader, PageNotFound } from "components/commons";
 
 const Product = () => {
 
     const [product, setProduct] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState(false);
 
+    const { slug } = useParams();
 
     const fetchProduct = async () => {
         try {
-            const product = await productsApi.show();
-            setProduct(product);
+            const response = await productsApi.show(slug);
+            setProduct(response);
         } catch (error) {
-            console.log("An error occurred:", error);
+            setIsError(true);
         } finally {
             setIsLoading(false);
         }
@@ -26,12 +29,10 @@ const Product = () => {
         fetchProduct();
     }, []);
 
+    if (isError) return <PageNotFound />;
+
     if (isLoading) {
-        return (
-            <div className="flex h-screen w-full items-center justify-center">
-                <Spinner />
-            </div>
-        );
+        <PageLoader />;
     }
 
     const {
@@ -48,10 +49,7 @@ const Product = () => {
 
     return (
         <div className="px-6 pb-6">
-            <div>
-                <Typography className="py-2 text-4xl font-semibold">{name}</Typography>
-                <hr className="border-2 border-black" />
-            </div>
+            <Header title={name} />
             <div className="flex gap-4 mt-6">
                 <div className="w-2/5">
                     {isNotNil(imageUrls) ? (
