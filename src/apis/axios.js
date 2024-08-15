@@ -8,9 +8,6 @@ const setHttpHeaders = () => {
   };
 };
 
-axios.defaults.baseURL =
-  "https://smile-cart-backend-staging.neetodeployapp.com/";
-
 const transformResponseKeysToCamelCase = response => {
   if (response.data) response.data = keysToCamelCase(response.data);
 };
@@ -25,7 +22,7 @@ const responseInterceptors = () => {
 
 export default function initializeAxios() {
   axios.defaults.baseURL =
-    "https://smile-cart-backend-staging.neetodeployapp.com/";
+    "https://smile-cart-backend-staging.neetodeployapp.net/";
   setHttpHeaders();
   responseInterceptors();
 }

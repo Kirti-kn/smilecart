@@ -23,7 +23,7 @@ const ProductList = () => {
   }, []);
 
   if (isLoading) {
-    <PageLoader />
+    return (<PageLoader />);
   }
 
   return (

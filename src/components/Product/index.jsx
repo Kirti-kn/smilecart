@@ -32,7 +32,7 @@ const Product = () => {
     if (isError) return <PageNotFound />;
 
     if (isLoading) {
-        <PageLoader />;
+        return(<PageLoader />);
     }
 
     const {
