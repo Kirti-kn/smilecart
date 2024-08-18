@@ -7,7 +7,6 @@ import "./App.css";
 import PageNotFound from "./components/commons/PageNotFound";
 import Product from "./components/Product";
 import ProductList from "./components/ProductList";
-// import CartItemsContext from "./contexts/CartItemsContext";
 
 const { show, index } = routes.products;
 
