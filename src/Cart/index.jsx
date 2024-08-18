@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-// import { isEmpty } from "ramda";
 import productsApi from "apis/products";
 import { PageLoader, Header } from "components/commons";
 import { MRP, OFFER_PRICE } from "components/constants";
@@ -8,7 +7,6 @@ import { cartTotalOf } from "components/utils";
 import { NoData, Toastr } from "neetoui";
 import { keys, isEmpty } from "ramda";
 import useCartItemsStore from "stores/useCartItemsStore";
-// import { Toastr } from "neetoui";
 
 import PriceCard from "./PriceCard";
 import ProductCard from "./ProductCard";
@@ -17,7 +15,7 @@ const Cart = () => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const { cartItems, setSelectedQuantity } = useCartItemsStore();
+  const { cartItems, setSelectedQuantity } = useCartItemsStore.pick();
   const slugs = keys(cartItems);
 
   const fetchCartProducts = async () => {
