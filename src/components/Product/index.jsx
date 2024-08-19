@@ -9,8 +9,11 @@ import { Button } from "neetoui";
 import { append, isNotNil } from "ramda";
 import { useParams } from "react-router-dom";
 import routes from "routes";
+import withTitle from "utils/withTitle";
 
 import Carousel from "./Carousel";
+
+let productName = "";
 
 const Product = () => {
   const [product, setProduct] = useState({});
@@ -18,6 +21,8 @@ const Product = () => {
   const [isError, setIsError] = useState(false);
 
   const { slug } = useParams();
+  productName = slug;
+  // console.log(productName);
   const { selectedQuantity, setSelectedQuantity } = useSelectedQuantity(slug);
 
   const fetchProduct = async () => {
@@ -90,4 +95,5 @@ const Product = () => {
   );
 };
 
-export default Product;
+console.log(productName);
+export default withTitle(Product, productName);

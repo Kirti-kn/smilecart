@@ -6,5 +6,6 @@
   "totalDiscounts": "Total discounts: <span>${{discounts}} ({{discountPercentage}}%)</span>",
   "offerPrice": "Total offer price: <span>${{offerPrice}}</span>",
   "title": "Smile Cart",
-  "pageTitle": "{{title}} | Smile Cart"
+  "pageTitle": "{{title}} | Smile Cart",
+  "cart": "My Cart"
 }

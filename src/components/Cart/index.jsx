@@ -4,10 +4,11 @@ import productsApi from "apis/products";
 import { PageLoader, Header } from "components/commons";
 import { MRP, OFFER_PRICE } from "components/constants";
 import { cartTotalOf } from "components/utils";
+import i18n from "i18next";
 import { NoData, Toastr } from "neetoui";
 import { keys, isEmpty } from "ramda";
-import { Helmet } from "react-helmet";
 import useCartItemsStore from "stores/useCartItemsStore";
+import withTitle from "utils/withTitle";
 
 import PriceCard from "./PriceCard";
 import ProductCard from "./ProductCard";
@@ -68,9 +69,6 @@ const Cart = () => {
 
   return (
     <>
-      <Helmet>
-        <title>My cart</title>
-      </Helmet>
       <Header title="My Cart" />
       <div className="mt-10 flex justify-center space-x-10">
         <div className="w-1/3 space-y-5">
@@ -88,4 +86,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default withTitle(Cart, i18n.t("cart"));
