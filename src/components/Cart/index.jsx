@@ -6,6 +6,7 @@ import { MRP, OFFER_PRICE } from "components/constants";
 import { cartTotalOf } from "components/utils";
 import { NoData, Toastr } from "neetoui";
 import { keys, isEmpty } from "ramda";
+import { Helmet } from "react-helmet";
 import useCartItemsStore from "stores/useCartItemsStore";
 
 import PriceCard from "./PriceCard";
@@ -67,6 +68,9 @@ const Cart = () => {
 
   return (
     <>
+      <Helmet>
+        <title>My cart</title>
+      </Helmet>
       <Header title="My Cart" />
       <div className="mt-10 flex justify-center space-x-10">
         <div className="w-1/3 space-y-5">

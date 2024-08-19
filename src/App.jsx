@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import routes from "routes";
 
 import "./App.css";
-import Cart from "./Cart";
+import Cart from "./components/Cart";
 import PageNotFound from "./components/commons/PageNotFound";
 import Product from "./components/Product";
 import ProductList from "./components/ProductList";
