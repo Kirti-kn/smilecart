@@ -1,5 +1,6 @@
 import { React } from "react";
 
+import Checkout from "components/Checkout";
 import { Route, Switch, Redirect } from "react-router-dom";
 import routes from "routes";
 
@@ -19,6 +20,7 @@ const App = () => (
     <Route exact component={ProductList} path={index} />
     <Redirect exact from={routes.root} to={index} />
     <Route exact component={Cart} path={routes.cart} />
+    <Route exact component={Checkout} path={routes.checkout} />
     <Route component={PageNotFound} path="*" />
   </Switch>
 );
