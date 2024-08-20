@@ -1,6 +1,6 @@
 import { OFFER_PRICE } from "components/constants";
 import { cartTotalOf } from "components/utils";
-import { useFetchProducts } from "hooks/reactQuery/useProductsApi";
+import { useFetchCartProducts } from "hooks/reactQuery/useProductsApi";
 import { Button } from "neetoui";
 import { keys } from "ramda";
 import { useTranslation } from "react-i18next";
@@ -15,7 +15,7 @@ const Items = ({ isSubmitDisabled }) => {
 
   const slugs = useCartItemsStore((store) => keys(store.cartItems), shallow);
 
-  const { data: products = [] } = useFetchProducts(slugs);
+  const { data: products = [] } = useFetchCartProducts(slugs);
 
   const totalCheckoutPrice = cartTotalOf(products, OFFER_PRICE);
 
